@@ -8,16 +8,18 @@ import (
 )
 
 func main() {
+	//db is a pointer to a database connection.
 	db, err := shortenurl.Connect()
 	if err != nil {
 		panic("failed to connect database")
 	}
+	//AutoMigrate takes a pointer to a struct and creates a table in the database.
 	db.AutoMigrate(&shortenurl.URL{})
 	//HandleFunc takes a path and a function as arguments. The function is called when the path is requested.
 	http.HandleFunc("/shorten", func(w http.ResponseWriter, r *http.Request) {
 		original := r.FormValue("url")
 		shortened := shortenurl.ShortenURL(original)
-		fmt.Printf(shortened)
+		fmt.Println(shortened)
 		//Create takes a pointer to a struct and creates a new record in the database.
 		db.Create(&shortenurl.URL{Original: original, Shortened: shortened})
 

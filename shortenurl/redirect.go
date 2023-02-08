@@ -17,7 +17,8 @@ func RedirectURL(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 
 	id := r.URL.Path[1:]
 	var url URL
-	db.First(&url, id)
+	shortened := "http://localhost:8080/" + id
+	db.First(&url, "shortened = ?", shortened)
 	http.Redirect(w, r, url.Original, http.StatusFound)
 
 }
