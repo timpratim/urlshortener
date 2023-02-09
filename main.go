@@ -22,7 +22,9 @@ func main() {
 		fmt.Println(shortened)
 		//Create takes a pointer to a struct and creates a new record in the database.
 		db.Create(&shortenurl.URL{Original: original, Shortened: shortened})
-
+		// return something like
+		// {"short_url":"http://localhost:8080/abc123"}
+		fmt.Fprintf(w, `{"short_url":"%s"}`, shortened)
 	})
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		shortenurl.RedirectURL(db, w, r)
