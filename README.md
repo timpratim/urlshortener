@@ -40,23 +40,21 @@ go run main.go
 ```
 
 ### Usage
-Shortening a URL
+- Shortening a URL
 To shorten a URL, make a POST request to http://localhost:8080/shorten with a JSON payload containing the original URL:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"url":"https://www.example.com"}' http://localhost:8080/shorten
+curl -X POST -d "url=https://twitter.com/BhosalePratim" http://localhost:8080/shorten
 ```
-The response will be a JSON object containing the short URL:
+- The response will be a JSON object containing the short URL:
 
-json
-Copy code
+```json
 {"short_url":"http://localhost:8080/abc123"}
-Redirecting to the Original URL
+```
+
+### Redirecting to the Original URL
 To redirect to the original URL, make a GET request to the short URL:
 
-bash
-Copy code
-curl -L http://localhost:8080/abc123
 This will redirect you to the original URL.
 
 ### Built With
