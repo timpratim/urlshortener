@@ -7,8 +7,7 @@ A simple URL shortener written in Go.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-
-What things you need to install the software and how to install them:
+Things you need on your machine.
 
 - Go
 - Any text editor or IDE
@@ -58,13 +57,10 @@ To redirect to the original URL, make a GET request to the short URL:
 This will redirect you to the original URL.
 
 ### Built With
-Go - The programming language used
+Go - The programming language.
 
 ### Authors
-Pratim Bhosale - Initial work
-See also the list of contributors who participated in this project.
+Pratim Bhosale
 
-### License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 
